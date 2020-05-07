@@ -1,0 +1,45 @@
+doctype html
+html(lang='en').w3-light-gray
+  head
+    title Books
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body.w3-display-container.w3-display-middle
+    h3.w3-center #{book.bookName} card
+    form(action='/book/' + book.bookName + '?_method=PUT', method='POST')
+      div
+        label.w3-large.w3-text-blue(for='name') Name
+        input.w3-input.w3-border#name(type='text', name='name', value=book.bookName , required='')
+      div
+        label.w3-large.w3-text-blue(for='author') Author
+        input.w3-input.w3-border#email(type='text', name='author', value=book.bookAuthor, required='')
+      div
+        label.w3-large.w3-text-blue(for='genre') Genre
+        input.w3-input.w3-border#genre(type='text', name='genre', value=book.bookGenre, required='')
+      br
+      div
+      - var status = book.isInLibrary
+      #book
+        label.w3-large.w3-text-blue(for='In Library') In Library
+        if status == 'Yes'
+            label.w3-margin-left(for='Yes') Yes
+            input.w3-radio#inLibrary(type='radio', name='inLibrary', value='Yes', checked)
+            label.w3-margin-left(for='No') No
+            input.w3-radio#inLibrary(type='radio', name='inLibrary', value='No')
+        else
+            label.w3-margin-left(for='Yes') Yes
+            input.w3-radio#inLibrary(type='radio', name='inLibrary', value='Yes')
+            label.w3-margin-left(for='No') No
+            input.w3-radio#inLibrary(type='radio', name='inLibrary', value='No', checked)
+      br
+      div
+        label.w3-large.w3-text-blue(for='Given To') Give To
+        select.w3-select.w3-border#users(name='users')
+          option(value=book.givenTo)
+          each user in users
+            option(value=user.name) #{user.name}
+      div
+        label.w3-large.w3-text-blue(for='returnDate') Return to
+        input.w3-input.w3-border#returnDate(type="date", name='returnDate', value=book.dateToReturn)
+      br
+      button.w3-button.w3-green(type='submit', style='width: 100%') Update information
+      a.w3-button.w3-blue.w3-margin-top(href='/', style='width: 100%') Go back

@@ -1,0 +1,57 @@
+doctype html
+html(lang='en').w3-light-grey
+  head
+    title Books
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body.w3-display-container
+    div 
+      div.w3-display-topright
+        h5.w3-text-black.w3-margin-right Greetings, #{name}
+        form.w3-display-container(action='/logout?_method=DELETE', method='POST')
+          button.w3-button.w3-blue.w3-display-topleft(type='submit', style="width: 90%") Log Out
+      h3 Remove book from library:
+      form.w3-margin-left(action='/delete_book?_method=DELETE', method='POST')
+          label.w3-margin-top(for='deleteField') Name of book(s) :
+            input.w3-input.w3-border#name(type='text', name='deleteBook', style='width: 20%')
+          button.w3-button.w3-red.w3-margin-top(type='submit') Remove book
+      h3 Filter:
+      label.w3-margin-left Enter here: 
+        input.w3-margin-left.w3-input.w3-border#myInput(type='text', placeholder='Search..',  style='width: 20%')
+      div.w3-display-bottom
+        div.w3-display-container
+          h3 List of books:
+          form.w3-display-topright(action='/add_book', method='GET', style='width: 15%')
+            button.w3-button.w3-green.w3-margin-right(type='submit', style='width: 90%') Add book
+        table#table1.mytable.w3-table.w3-bordered.w3-margin-left.w3-centered
+          tr 
+            th Name
+            th Author
+            th Genre
+            th In Library
+            th Given To
+            th Date to return
+            th Card
+          tbody#myTable
+              each book in allBooks
+                tr.content
+                  td= book.bookName
+                  td= book.bookAuthor
+                  td= book.bookGenre
+                  td= book.isInLibrary
+                  td= book.givenTo
+                  td= book.dateToReturn
+                  td
+                    a.w3-button.w3-blue(href='/book/' + book.bookName, style="width: 50%, height: 0%") View Card
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')          
+  script.
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  
+    

@@ -1,0 +1,50 @@
+[
+  {
+    "bookName": "Book1",
+    "bookAuthor": "Author 1",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "Yes",
+    "givenTo": "None",
+    "dateToReturn" : ""
+  },
+  {
+    "bookName": "Book2",
+    "bookAuthor": "Author 2",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "No",
+    "givenTo": "Some user 1",
+    "dateToReturn" : ""
+  },
+  {
+    "bookName": "Book3",
+    "bookAuthor": "Author 1",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "Yes",
+    "givenTo": "None",
+    "dateToReturn" : ""
+  },
+  {
+    "bookName": "Book4",
+    "bookAuthor": "Author 1",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "Yes",
+    "givenTo": "None",
+    "dateToReturn" : ""
+  },
+  {
+    "bookName": "Book5",
+    "bookAuthor": "Author 2",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "No",
+    "givenTo": "Some user 1",
+    "dateToReturn" : ""
+  },
+  {
+    "bookName": "Book6",
+    "bookAuthor": "Author 2",
+    "bookGenre": "Genre 1",
+    "isInLibrary": "No",
+    "givenTo": "Some user 1",
+    "dateToReturn" : ""
+  }
+]

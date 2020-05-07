@@ -1,0 +1,22 @@
+doctype html
+html(lang='en').w3-light-grey
+  head
+    title Books
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+  body 
+    form.w3-display-container.w3-display-middle(action='/register', method='POST')
+      h1.w3-text-blue Sign Up
+      div
+        label.w3-text-blue(for='name') Name
+        input.w3-input.w3-border#name(type='text', name='name', required='')
+      br
+      div
+        label.w3-text-blue(for='email') Email
+        input.w3-input.w3-border#email(type='email', name='email', required='')
+      br
+      div
+        label.w3-text-blue(for='password') Password
+        input.w3-input.w3-border#password(type='password', name='password', required='')
+      br
+      button.w3-button.w3-green(type='submit', style='width: 100%') Sign Up
+      a.w3-button.w3-blue.w3-right.w3-margin-top(href='/login', style='width: 100%') Back to Login
